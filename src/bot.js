@@ -24,6 +24,7 @@ const bot = async function(message) {
 
     if (!Object.keys(commands).includes(args[0])) {
         message.channel.send("Command not found");
+        return;
     }
 
     const res = await commands[args[0]](args.slice(1));

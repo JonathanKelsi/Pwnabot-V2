@@ -60,7 +60,7 @@ const getUserRank = async function(username) {
         return "Lainad, stop...";
     }
 
-    return data.match(/(?<=rank:)\d+/g)[0];
+    return data.match(/(?<=rank:)\d+/g)[-1];
 }
 
 const getChallengesCategorised = async function(userId) {
