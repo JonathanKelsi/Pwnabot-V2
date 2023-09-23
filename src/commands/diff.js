@@ -13,7 +13,6 @@ const diffCommand = async function(params) {
 
         for (const challenge of catChallenges) {
             if (!challengesCatagorised[cat._name].includes(challenge) && challenge !== '_name') {
-                console.log(challenge);
                 catDiff.push(challenge);
             }
         }
@@ -23,7 +22,6 @@ const diffCommand = async function(params) {
         }
     }
 
-    console.log(res);
     return formatCategorisedChallenges(res);
 }
 

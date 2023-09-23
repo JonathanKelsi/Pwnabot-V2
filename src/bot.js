@@ -1,9 +1,13 @@
 import lsCommand from "./commands/ls.js";
 import diffCommand from "./commands/diff.js"; 
+import helpCommand from "./commands/help.js"; 
+import rankCommand from "./commands/rank.js"; 
 
 const commands = {
     "ls": lsCommand,
     "diff": diffCommand,
+    "rank": rankCommand,
+    "help": helpCommand,
 }
 
 const sanityCheck = function(message) {
