@@ -52,8 +52,14 @@ const getUserRank = async function(username) {
 
     const data = await res.text();
 
+    console.log(data);
+
     if (data.includes("not found")) {
         return "User not found";
+    }
+
+    if (data.includes("sql injection")) {
+        return "Lainad, stop...";
     }
 
     return data.match(/(?<=rank:)\d+/g)[0];
