@@ -1,9 +1,7 @@
 import challenges from '../challenges/challenges.js';
 
 const rankCommand = async function(params) {
-    let rank = challenges.getUserRank(params[0]);
-    console.log(rank);
-    return rank;
+    return challenges.getUserRank(params[0]);
 }
 
 export default rankCommand;
