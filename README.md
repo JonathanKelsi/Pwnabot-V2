@@ -8,7 +8,7 @@ This repository provides the source code for the Pwnabot, a discord bot that pro
 
 Clone the repository: 
 ```bash
-git 
+git clone https://github.com/JonathanKelsi/Pwnabot-V2
 ```
 Download the necessary dependencies:
 ```bash
