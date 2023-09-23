@@ -52,8 +52,6 @@ const getUserRank = async function(username) {
 
     const data = await res.text();
 
-    console.log(data);
-
     if (data.includes("not found")) {
         return "User not found";
     }
