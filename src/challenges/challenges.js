@@ -1,3 +1,5 @@
+import categories from "./categories.js";
+
 const getChallenges = async function(userId) {
     const res = await fetch(`https://pwnable.kr/rankproc.php?id=${userId}`, {
         "headers": {
@@ -24,4 +26,25 @@ const getChallenges = async function(userId) {
     return data.trim().split(',').slice(0, -1);
 }
 
-export default getChallenges;
+const getChallengesCategorised = async function(userId) {
+    const challenges = await getChallenges(userId);
+    const res = {};
+
+    console.log(userId, challenges);
+
+    for (let i = 0; i < categories.length; i++) {
+        res[categories[i]._name] = [];
+    }
+
+    for (const challenge of challenges) {
+        for (const cat of categories) {
+            if (Object.keys(cat).includes(challenge)) {
+                res[cat["_name"]].push(challenge);
+            }
+        }
+    }
+
+    return res;
+}
+
+export default getChallengesCategorised;

@@ -81,11 +81,11 @@ const hackersSecret = {
     "crcgen": 200,
 }
 
-const challengesDB = [
+const categories = [
     toddlersBottle,
     rookiss,
     grotesque,
     hackersSecret,
 ]
 
-export default challengesDB;
+export default categories;
