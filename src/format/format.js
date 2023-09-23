@@ -1,3 +1,5 @@
+import challenges from '../challenges/challenges.js';
+
 const formatCategory = (categoryName, challenges) => {
     let res = `### ${categoryName}\n`;
 
@@ -9,13 +11,15 @@ const formatCategory = (categoryName, challenges) => {
 }
 
 const formatCategorisedChallenges = (categorisedChallenges) => {
-    let res = "";
+    let res = "", points = 0;
 
     for (const cat of Object.keys(categorisedChallenges)) {
         res += formatCategory(cat, categorisedChallenges[cat]);
+        points += challenges.getPointsTotal(categorisedChallenges[cat]);
     }
 
+    res += `\nTotal points: ${points}`;
     return res;
 }
 
-export default formatCategorisedChallenges
+export default formatCategorisedChallenges;

@@ -1,8 +1,9 @@
 import lsCommand from "./commands/ls.js";
-import getChallengesCategorised from "./challenges/challenges.js"
+import diffCommand from "./commands/diff.js"; 
 
 const commands = {
     "ls": lsCommand,
+    "diff": diffCommand,
 }
 
 const sanityCheck = function(message) {

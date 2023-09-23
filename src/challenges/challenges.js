@@ -30,8 +30,6 @@ const getChallengesCategorised = async function(userId) {
     const challenges = await getChallenges(userId);
     const res = {};
 
-    console.log(userId, challenges);
-
     for (let i = 0; i < categories.length; i++) {
         res[categories[i]._name] = [];
     }
@@ -47,4 +45,18 @@ const getChallengesCategorised = async function(userId) {
     return res;
 }
 
-export default getChallengesCategorised;
+const getPointsTotal = function(challenges) {
+    let res = 0;
+
+    for (const challenge of challenges) {
+        for (const cat of categories) {
+            if (Object.keys(cat).includes(challenge)) {
+                res += cat[challenge];
+            }
+        }
+    }
+
+    return res;
+}
+
+export default { getChallengesCategorised, getPointsTotal };
