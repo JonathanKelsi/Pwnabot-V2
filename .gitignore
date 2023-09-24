@@ -134,3 +134,6 @@ dist
 
 # macOS files
 .DS_Store
+
+# Output directory
+build
