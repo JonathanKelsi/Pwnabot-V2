@@ -1,6 +1,6 @@
 # Pwnabot V2
 
-This repository provides the source code for the Pwnabot, a discord bot that provides pwnable.kr-related services, this time using JavaScript.
+This repository provides the source code for the Pwnabot, a discord bot that provides pwnable.kr-related services, this time using TypeScript.
 
 ## Getting Started
 
