@@ -1,4 +1,7 @@
-const toddlersBottle = {
+// Note: removing the _name key will greatly simplify
+//       types and handling code in challenges.ts
+
+export const toddlersBottle: {[key: string]: number | string} = {
     "_name": "Toddler's Bottle",
     "fd": 1,
     "collision": 3,
@@ -23,7 +26,7 @@ const toddlersBottle = {
     "horcruxes": 7,
 }
 
-const rookiss = {
+export const rookiss : {[key: string]: number | string} = {
     "_name": "Rookiss",
     "brain fuck": 150,
     "md5 calculator": 200,
@@ -44,7 +47,7 @@ const rookiss = {
     "loveletter": 50,
 }
 
-const grotesque = {
+export const grotesque: {[key: string]: number | string} = {
     "_name": "Grotesque",
     "rootkit": 400,
     "dos4fun": 444,
@@ -64,7 +67,7 @@ const grotesque = {
     "mipstake": 200,
 }
 
-const hackersSecret = {
+export const hackersSecret : {[key: string]: number | string} = {
     "_name": "Hacker's Secret",
     "unexploitable": 500,
     "tiny": 600,
@@ -81,11 +84,9 @@ const hackersSecret = {
     "crcgen": 200,
 }
 
-const categories = [
+export const categories: {[key: string]: number | string}[] = [
     toddlersBottle,
     rookiss,
     grotesque,
-    hackersSecret,
+    hackersSecret
 ]
-
-export default categories;

@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 import { Client, GatewayIntentBits } from "discord.js";
-import bot from "./src/bot.js";
+import { bot } from "./bot";
 
 config();
 
