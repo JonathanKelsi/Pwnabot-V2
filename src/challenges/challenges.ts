@@ -64,7 +64,7 @@ export async function getUserRank(username: string) {
     return data.match(/(?<=rank:)\d+/g)!.pop();
 }
 
-export async function getChallengesCategorised(userId: string) {
+export async function getChallengesCategorized(userId: string) {
     const challenges = await getChallenges(userId);
     const res: {[key: string]: string[]} = {};
 

@@ -10,12 +10,12 @@ export function formatCategory(categoryName: string, challenges: string[]) {
     return res;
 }
 
-export function formatCategorisedChallenges(categorisedChallenges: {[key: string]: string[]}) {
+export function formatCategorizedChallenges(categorizedChallenges: {[key: string]: string[]}) {
     let res = "", points = 0;
 
-    for (const cat in categorisedChallenges) {
-        res += formatCategory(cat, categorisedChallenges[cat]);
-        points += getPointsTotal(categorisedChallenges[cat]);
+    for (const cat in categorizedChallenges) {
+        res += formatCategory(cat, categorizedChallenges[cat]);
+        points += getPointsTotal(categorizedChallenges[cat]);
     }
 
     res += `\nTotal points: ${points}`;
