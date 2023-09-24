@@ -14,8 +14,8 @@ const commands: {[key: string]: Function} = {
 function sanityCheck(message: Message) {
     if (message.author.bot) return false;
     if (message.channelId != process.env.CHANNEL_ID) return false;
-    if (!message.content.startsWith(process.env.PREFIX!)) return false;
-    return true;
+    return message.content.startsWith(process.env.PREFIX!);
+
 }
 
 export async function bot (message: Message) {
