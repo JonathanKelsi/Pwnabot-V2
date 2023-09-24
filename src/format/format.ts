@@ -13,9 +13,9 @@ export function formatCategory(categoryName: string, challenges: string[]) {
 export function formatCategorizedChallenges(categorizedChallenges: {[key: string]: string[]}) {
     let res = "", points = 0;
 
-    for (const cat in categorizedChallenges) {
-        res += formatCategory(cat, categorizedChallenges[cat]);
-        points += getPointsTotal(categorizedChallenges[cat]);
+    for (const catName in categorizedChallenges) {
+        res += formatCategory(catName, categorizedChallenges[catName]);
+        points += getPointsTotal(categorizedChallenges[catName]);
     }
 
     res += `\nTotal points: ${points}`;

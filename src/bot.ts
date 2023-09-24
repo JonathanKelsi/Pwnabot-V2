@@ -19,7 +19,7 @@ function sanityCheck(message: Message) {
 
 export async function bot (message: Message) {
     if (!sanityCheck(message)) {
-        return;
+        return null;
     }
 
     const args = message.content.slice(process.env.PREFIX!.length).trim().split(' ');
