@@ -11,14 +11,14 @@ const commands: {[key: string]: Function} = {
     "help": helpCommand,
 }
 
-const sanityCheck = function(message: Message) {
+function sanityCheck(message: Message) {
     if (message.author.bot) return false;
     if (message.channelId != process.env.CHANNEL_ID) return false;
     if (!message.content.startsWith(process.env.PREFIX!)) return false;
     return true;
 }
 
-export const bot = async function(message: Message) {
+export async function bot (message: Message) {
     if (!sanityCheck(message)) return;
 
     const args = message.content.slice(process.env.PREFIX!.length).trim().split(' ');

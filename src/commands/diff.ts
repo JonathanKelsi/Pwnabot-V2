@@ -2,7 +2,7 @@ import { getChallengesCategorised } from '../challenges/challenges.js';
 import { categories } from '../challenges/categories.js';
 import { formatCategorisedChallenges } from '../format/format.js';
 
-export const diffCommand = async function(params: any[]) {
+export async function diffCommand(params: any[]) {
     const userId = params[0];
     const challengesCatagorised = await getChallengesCategorised(userId);
     const res: {[key: string]: string[]} = {};

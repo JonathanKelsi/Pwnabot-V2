@@ -1,4 +1,4 @@
-export const helpCommand = async function(params: any[]) {
+export async function helpCommand(params: any[]) {
     const helpString = `
     **Commands**
     > \`!ls [userId]\` - List challenges complete by user

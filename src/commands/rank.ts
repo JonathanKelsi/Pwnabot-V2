@@ -1,5 +1,5 @@
 import { getUserRank } from '../challenges/challenges.js';
 
-export const rankCommand = async function(params: any[]) {
+export async function rankCommand(params: any[]) {
     return getUserRank(params[0]);
 }

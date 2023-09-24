@@ -1,6 +1,6 @@
 import { categories } from "./categories";
 
-export const getChallenges = async function(userId: string) {
+export async function getChallenges(userId: string) {
     const res = await fetch(`https://pwnable.kr/rankproc.php?id=${userId}`, {
         "headers": {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -26,7 +26,7 @@ export const getChallenges = async function(userId: string) {
     return data.trim().split(',').slice(0, -1);
 }
 
-export const getUserRank = async function(username: string) {
+export async function getUserRank(username: string) {
     const res = await fetch("https://pwnable.kr/lib.php?cmd=finduser", {
     "headers": {
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -64,7 +64,7 @@ export const getUserRank = async function(username: string) {
     return data.match(/(?<=rank:)\d+/g)!.pop();
 }
 
-export const getChallengesCategorised = async function(userId: string) {
+export async function getChallengesCategorised(userId: string) {
     const challenges = await getChallenges(userId);
     const res: {[key: string]: string[]} = {};
 
@@ -83,7 +83,7 @@ export const getChallengesCategorised = async function(userId: string) {
     return res;
 }
 
-export const getPointsTotal = function(challenges: string[]) {
+export function getPointsTotal(challenges: string[]) {
     let res = 0;
 
     for (const challenge of challenges) {

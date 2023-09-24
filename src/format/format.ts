@@ -1,6 +1,6 @@
 import { getPointsTotal } from '../challenges/challenges.js';
 
-export const formatCategory = (categoryName: string, challenges: string[]) => {
+export function formatCategory(categoryName: string, challenges: string[]) {
     let res = `### ${categoryName}\n`;
 
     for (const challenge of challenges) {
@@ -10,7 +10,7 @@ export const formatCategory = (categoryName: string, challenges: string[]) => {
     return res;
 }
 
-export const formatCategorisedChallenges = (categorisedChallenges: {[key: string]: string[]}) => {
+export function formatCategorisedChallenges(categorisedChallenges: {[key: string]: string[]}) {
     let res = "", points = 0;
 
     for (const cat in categorisedChallenges) {
