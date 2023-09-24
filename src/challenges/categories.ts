@@ -1,6 +1,3 @@
-// Note: removing the _name key will greatly simplify
-//       types and handling code in challenges.ts
-
 export const toddlersBottle: {[key: string]: number} = {
     "fd": 1,
     "collision": 3,
@@ -86,10 +83,3 @@ export const categories: {[key: string]: {[key: string]: number}} = {
     "Grotesque": grotesque,
     "Hacker's Secret": hackersSecret
 }
-
-export const categoriesA: {[key: string]: number | string}[] = [
-    toddlersBottle,
-    rookiss,
-    grotesque,
-    hackersSecret
-]
