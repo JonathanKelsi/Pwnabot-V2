@@ -18,7 +18,7 @@ npm i
 
 To run the bot, run
 ```bash
-node index.js
+npm start
 ```
 ## Services
 

@@ -1,6 +1,6 @@
-import categories from "./categories.js";
+import { categories } from "./categories";
 
-const getChallenges = async function(userId) {
+export async function getChallenges(userId: string) {
     const res = await fetch(`https://pwnable.kr/rankproc.php?id=${userId}`, {
         "headers": {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -26,7 +26,7 @@ const getChallenges = async function(userId) {
     return data.trim().split(',').slice(0, -1);
 }
 
-const getUserRank = async function(username) {
+export async function getUserRank(username: string) {
     const res = await fetch("https://pwnable.kr/lib.php?cmd=finduser", {
     "headers": {
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -60,12 +60,13 @@ const getUserRank = async function(username) {
         return "Lainad, stop...";
     }
 
-    return data.match(/(?<=rank:)\d+/g).pop();
+    // Warning: unsafe code, non-null assertion (!) used
+    return data.match(/(?<=rank:)\d+/g)!.pop();
 }
 
-const getChallengesCategorised = async function(userId) {
+export async function getChallengesCategorised(userId: string) {
     const challenges = await getChallenges(userId);
-    const res = {};
+    const res: {[key: string]: string[]} = {};
 
     for (let i = 0; i < categories.length; i++) {
         res[categories[i]._name] = [];
@@ -73,7 +74,7 @@ const getChallengesCategorised = async function(userId) {
 
     for (const challenge of challenges) {
         for (const cat of categories) {
-            if (Object.keys(cat).includes(challenge)) {
+            if (challenge in cat) {
                 res[cat["_name"]].push(challenge);
             }
         }
@@ -82,18 +83,16 @@ const getChallengesCategorised = async function(userId) {
     return res;
 }
 
-const getPointsTotal = function(challenges) {
+export function getPointsTotal(challenges: string[]) {
     let res = 0;
 
     for (const challenge of challenges) {
         for (const cat of categories) {
-            if (Object.keys(cat).includes(challenge)) {
-                res += cat[challenge];
+            if (challenge in cat) {
+                res += cat[challenge] as number;
             }
         }
     }
 
     return res;
 }
-
-export default { getChallengesCategorised, getUserRank, getPointsTotal };

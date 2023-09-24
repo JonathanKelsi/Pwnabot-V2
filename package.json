@@ -2,16 +2,20 @@
   "name": "pwnabot-v2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "shx rm -rf dist",
+    "build": "npm run clean && tsc",
+    "run": "node .",
+    "start": "npm run build && npm run run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "shx": "^0.3.4",
+    "typescript": "^5.2.2"
   }
 }
