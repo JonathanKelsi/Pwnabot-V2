@@ -7,17 +7,17 @@ export async function diffCommand(params: any[]) {
     const challengesCatagorised = await getChallengesCategorised(userId);
     const res: {[key: string]: string[]} = {};
 
-    for (const cat of categories) {
+    for (const catName in categories) {
         const catDiff = [];
 
-        for (const challenge in cat) {
-            if (!challengesCatagorised[cat._name].includes(challenge) && challenge !== '_name') {
+        for (const challenge in categories[catName]) {
+            if (!challengesCatagorised[catName].includes(challenge)) {
                 catDiff.push(challenge);
             }
         }
 
         if (catDiff.length > 0) {
-            res[cat._name] = catDiff;
+            res[catName] = catDiff;
         }
     }
 
