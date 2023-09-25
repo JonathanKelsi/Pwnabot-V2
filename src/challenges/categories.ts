@@ -1,8 +1,4 @@
-// Note: removing the _name key will greatly simplify
-//       types and handling code in challenges.ts
-
-export const toddlersBottle: {[key: string]: number | string} = {
-    "_name": "Toddler's Bottle",
+export const toddlersBottle: {[key: string]: number} = {
     "fd": 1,
     "collision": 3,
     "bof": 5,
@@ -26,8 +22,7 @@ export const toddlersBottle: {[key: string]: number | string} = {
     "horcruxes": 7,
 }
 
-export const rookiss : {[key: string]: number | string} = {
-    "_name": "Rookiss",
+export const rookiss : {[key: string]: number} = {
     "brain fuck": 150,
     "md5 calculator": 200,
     "simple login": 50,
@@ -47,8 +42,7 @@ export const rookiss : {[key: string]: number | string} = {
     "loveletter": 50,
 }
 
-export const grotesque: {[key: string]: number | string} = {
-    "_name": "Grotesque",
+export const grotesque: {[key: string]: number} = {
     "rootkit": 400,
     "dos4fun": 444,
     "ascii": 333,
@@ -67,8 +61,7 @@ export const grotesque: {[key: string]: number | string} = {
     "mipstake": 200,
 }
 
-export const hackersSecret : {[key: string]: number | string} = {
-    "_name": "Hacker's Secret",
+export const hackersSecret : {[key: string]: number} = {
     "unexploitable": 500,
     "tiny": 600,
     "softmmu": 666,
@@ -84,9 +77,9 @@ export const hackersSecret : {[key: string]: number | string} = {
     "crcgen": 200,
 }
 
-export const categories: {[key: string]: number | string}[] = [
-    toddlersBottle,
-    rookiss,
-    grotesque,
-    hackersSecret
-]
+export const categories: {[key: string]: {[key: string]: number}} = {
+    "Toddler's Bottle": toddlersBottle,
+    "Rookiss": rookiss,
+    "Grotesque": grotesque,
+    "Hacker's Secret": hackersSecret
+}

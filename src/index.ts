@@ -17,8 +17,12 @@ client.once("ready", () => {
     console.log("[+] Bot is up and running");
 });
 
-client.on("messageCreate", (message) => {
-    bot(message);
+client.on("messageCreate", async (message) => {
+    const res = await bot(message);
+    
+    if (res) {
+        message.channel.send(res);
+    }
 });
 
 client.login(process.env.TOKEN);
